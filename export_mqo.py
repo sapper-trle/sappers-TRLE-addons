@@ -93,7 +93,7 @@ def exp_obj(op, fw, ob, scale, inte_mat, tmp_mat, texture):
     if not me:
         return inte_mat, fw
 
-    fw.append("Object \"%s\" {\n\tdepth 0\n\tfolding 0\n\tscale 1.0 1.0 1.0\n\trotation 1.0 1.0 1.0\n\ttranslation 1.0 1.0 1.0\n\tvisible 15\n\tlocking 0\n\tshading 1\n\tfacet 59.5\n\tcolor 0.898 0.498 0.698\n\tcolor_type 0\n" % (me.name))
+    fw.append("Object \"%s\" {\n\tdepth 0\n\tfolding 0\n\tscale 1 1 1\n\trotation 0 0 0\n\ttranslation 0 0 0\n\tvisible 15\n\tlocking 0\n\tshading 1\n\tfacet 59.5\n\tcolor 0.898 0.498 0.698\n\tcolor_type 0\n" % (me.name))
         
     msg = ".mqo export: Exporting \"%s\" object" %(ob.name)
     print(msg)
