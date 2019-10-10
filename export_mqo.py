@@ -177,7 +177,7 @@ def exp_obj(op, fw, ob, scale, inte_mat, tmp_mat, texture):
     return inte_mat, fw    
     
 def mat_fw(fw, tmp):
-    fw("Material  %d {\n" % (len(tmp)))
+    fw("Material %d {\n" % (len(tmp)))
     for mat in tmp:
         fw("%s" % (mat))
     fw("}\n")
