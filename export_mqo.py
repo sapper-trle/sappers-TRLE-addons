@@ -105,7 +105,7 @@ def exp_obj(op, fw, ob, scale, inte_mat, tmp_mat, texture):
         fw.append("\t\t%.5f %.5f %.5f\n" % (v.co[0]*scale, v.co[2]*scale, -v.co[1]*scale)) # swap y and z keeping left and right the same
     fw.append("\t}\n")
     
-    me.update(calc_loop_triangles=True)
+    me.update()
     facecount, ngons = getFacesCount(me)
     # using loop_triangles is no good
     # no guarantee that UVs will be right angled triangles
@@ -124,6 +124,7 @@ def exp_obj(op, fw, ob, scale, inte_mat, tmp_mat, texture):
         faces = me.polygons
     else:
         faces = []
+        me.calc_loop_triangles()
         for f in me.polygons:
             if len(f.vertices) < 5:
                 faces.append(f)

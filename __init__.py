@@ -10,8 +10,8 @@ Instructions:
 bl_info = {
     "name": "Sapper's TRLE Export Addons",
     "author": "sapper",
-    "blender": (2, 80, 0),
-    "version": (2, 0),
+    "blender": (2, 81, 0),
+    "version": (2, 3),
     "location": "File > Export",
     "description": "Export UVs to .rec format & "
                    "Export mesh to *.mqo format for StrPix import",
