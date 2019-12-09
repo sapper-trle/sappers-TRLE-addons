@@ -12,4 +12,5 @@ The UVs are assumed to be rectangles or triangles which are one corner of a rect
 TextureAdd uses the .rec file to define the textures from a 256 x 256 image that are used for each face of the mesh.
 
 For Blender 2.72 to 2.79 use version v1.1 (Click on "Releases").
-For Blender 2.80 use version v2.x. 
+For Blender 2.80 use version v2.x.
+For Blender 2.81 must use version v2.3 or higher. 
