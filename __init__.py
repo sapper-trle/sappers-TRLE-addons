@@ -11,7 +11,7 @@ bl_info = {
     "name": "Sapper's TRLE Export Addons",
     "author": "sapper",
     "blender": (2, 81, 0),
-    "version": (2, 3),
+    "version": (2, 4),
     "location": "File > Export",
     "description": "Export UVs to .rec format & "
                    "Export mesh to *.mqo format for StrPix import",
@@ -38,7 +38,7 @@ from bpy.props import (BoolProperty,
                        
 from bpy_extras.io_utils import (ExportHelper)
 
-def export_rec(op, filename, context):
+def export_rec(op, filename, context, img128):
     from . import texaddrec as ta
     print()
         
@@ -63,6 +63,8 @@ def export_rec(op, filename, context):
                             uv = (uv_layer[loop_index].uv[0],1-uv_layer[loop_index].uv[1])
                             uvs.append(uv)
                         texinfo = ta.uvtotexinfo(uvs)
+                        if img128:
+                            texinfo = ta.uvtotexinfo(uvs, 128)
                         rec.addtexinfo(texinfo)
                     else:
                         ngons = True
@@ -73,6 +75,8 @@ def export_rec(op, filename, context):
                                 uv = (uv_layer[loop_index].uv[0],1-uv_layer[loop_index].uv[1])
                                 uvs.append(uv)
                             texinfo = ta.uvtotexinfo(uvs)
+                            if img128:
+                                texinfo = ta.uvtotexinfo(uvs, 128)
                             rec.addtexinfo(texinfo)
                 print()
                 # using loop_triangles is no good
@@ -123,8 +127,12 @@ class ExportREC(bpy.types.Operator, ExportHelper):
     filename_ext = ".rec"
     filter_glob : bpy.props.StringProperty(default="*.rec", options={'HIDDEN'})
 
+    img128: bpy.props.BoolProperty(
+        name = "128 x 128 image"
+    )
+
     def execute(self, context):
-        export_rec(self, self.properties.filepath, context)
+        export_rec(self, self.properties.filepath, context, self.img128)
         return {'FINISHED'}
  
     def invoke(self, context, event):
