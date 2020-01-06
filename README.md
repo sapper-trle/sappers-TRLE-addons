@@ -10,6 +10,7 @@ The .mqo exporter exports the model to Metasequoia (.mqo) format with material n
 The .rec exporter exports the UVs to a text file suitable for import into TextureAdd.
 The UVs are assumed to be rectangles or triangles which are one corner of a rectangle. Lightmap packed UVs satisfy this requirement.
 TextureAdd uses the .rec file to define the textures from a 256 x 256 image that are used for each face of the mesh.
+version v2.4 adds option in export file dialog to export UVs according to 128 x 128 image. The 128 x 128 image must be located in the top left corner of the texture page in TextureAdd.
 
 For Blender 2.72 to 2.79 use version v1.1 (Click on "Releases").
 For Blender 2.80 use version v2.x.
